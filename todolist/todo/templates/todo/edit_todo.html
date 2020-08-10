@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>edit todo list</title>
+</head>
+<body>
+<h2>edit todo list</h2>
+<form method="post" action="{% url 'todo:savetodo' todo_item.id %}">
+    {% csrf_token %}
+    <div>todo:<input type="text" name="todo" value="{{ todo_item.todo }}"></div>
+    <div>flag:<input type="text" name="flag" value="{{ todo_item.flag }}"></div>
+    <div>priority:<input type="text" name="priority" value="{{ todo_item.priority }}"></div>
+    <input type="submit" name="保存">
+</form>
+</body>
+</html>

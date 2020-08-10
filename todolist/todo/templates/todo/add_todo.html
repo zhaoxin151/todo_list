@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>add todo</title>
+</head>
+<body>
+<h2>add todo</h2>
+<form method="POST" action="{% url 'todo:addtodo' %}">
+    {% csrf_token %}
+    todo_name:<input type="text" name="todo"><br>
+    priority:<input type="text" name="priority"><br>
+    <input type="submit" value="提交">
+</form>
+</body>
+</html>

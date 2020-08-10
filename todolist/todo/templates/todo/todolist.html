@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>todo list</title>
+</head>
+<body>
+<h2>todo list</h2>
+<table  border="1">
+    <tr>
+        <th>待办列表</th>
+        <th>设置</th>
+        <th>删除</th>
+    </tr>
+    {% for todo in todolist %}
+    <tr>
+        <td> <a href="{% url 'todo:edittodo' todo.id %}">{{ todo.todo }}</a></td>
+        {% ifequal todo.flag '1' %}
+        <td><a href="{% url 'todo:completetodo' todo.id %}">完成</a></td>
+        {% else %}
+        <td><a href="{% url 'todo:resettodo' todo.id %}">重置</a></td>
+        {% endifequal %}
+        <td><a href="{% url 'todo:deletetodo' todo.id %}">删除</a></td>
+    </tr>
+    {% endfor %}
+</table>
+<div>
+    <a href="{% url 'todo:addtodo' %}">添加</a>
+</div>
+</body>
+</html>
